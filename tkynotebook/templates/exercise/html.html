@@ -1,0 +1,56 @@
+
+<!--一个完整的小登录前端-->
+
+<!DOCTYPE html>  
+<html>  
+<body>  
+
+<div align="center">
+<h2>登录</h2>  
+  
+账号:<input type="text" id="user_account">
+<br>
+密码:<input type="text" id="password">
+<br>
+<button onclick="myFunction()">登录</button> 
+<br> 
+  
+<p id="login_res"></p>  
+
+</div>
+  
+<script>  
+function myFunction() {  
+  var account = document.getElementById('user_account').value;
+  var password = document.getElementById('password').value;
+  
+  if (!account) {
+    document.getElementById('login_res').innerHTML = "账号不能为空";
+    return ;
+  }
+  if (!password) {
+    document.getElementById('login_res').innerHTML = "密码不能为空";
+    return ;
+  }
+
+  var url = "/login";
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.open('POST', url, true);
+  httpRequest.setRequestHeader("Content-type", "application/json");
+
+  console.log("sent");
+  httpRequest.send(JSON.stringify({'account': account, 'password': password}));
+
+  // 响应后的回调函数
+  httpRequest.onreadystatechange = function () {
+      if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+          var json = httpRequest.responseText;
+          document.getElementById('login_res').innerHTML = json;
+      }
+  };
+}
+
+</script>  
+  
+</body>  
+</html>

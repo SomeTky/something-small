@@ -1,0 +1,12 @@
+-- database: c:\Users\Administrator\Desktop\worktable\dbmanager\test.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+CREATE TABLE user_info(
+    name TEXT,
+    account TEXT,
+    password TEXT
+);
+
+INSERT INTO user_info (name, account, password)
+VALUES ('tky2', '21281079', '20020918');

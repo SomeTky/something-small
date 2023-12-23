@@ -1,0 +1,8 @@
+-- database: c:\Users\Administrator\Desktop\worktable\testpy\test.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+CREATE TABLE user_account(
+    user_name TEXT NOT NULL,
+    account TEXT NOT NULL,
+    password TEXT NOT NULL);
